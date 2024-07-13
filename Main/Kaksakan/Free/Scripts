@@ -1,1 +1,81 @@
+if game.PlaceId == 205224386 then
 
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+print("Hİ! İm Kak Creator of that Script / Exploit. Ty for using it. This was a message send from owner.Enjoy!")
+
+local Window = Library.CreateLib("Kak.Hub Hide And Seek Extreme", "DarkTheme")
+
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Main")
+
+
+Section:NewButton("Safe Place", "Click to teleport to a Safe Place", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(307.000061, 209.199997, -28.4000034, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+Section:NewButton("Collect All Coins", "ButtonInfo", function()
+    for i, v in game:GetService("Workspace").GameObjects:GetChildren() do
+        v.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+        end
+end)
+
+local plrs = {}
+for _, v in pairs(game.Players:GetPlayers()) do
+    table.insert(plrs, v.Name)
+end
+
+Section:NewDropdown("Chose A Player", "Chose A Player To Teleport That Player You Chose", plrs, function(currentOption)
+    local selectedPlayer = game.Players:FindFirstChild(currentOption)
+    if selectedPlayer then 
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = selectedPlayer.Character.HumanoidRootPart.CFrame
+    end
+end)
+
+local Tab = Window:NewTab("Player")
+local Section = Tab:NewSection("Player")
+
+Section:NewTextBox("WalkSpeed", "Change your WalkSpeed", function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+end)
+
+Section:NewTextBox("JumpPower", "Change your JumpPower", function(Value)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+end)
+
+local Tab = Window:NewTab("Credits And Others")
+local Section = Tab:NewSection("Credits And Others")
+
+Section:NewLabel("By Kaksakan")
+
+Section:NewButton("My Discord", "Click to copy my Discord Server link", function()
+    setclipboard("https://discord.gg/tNf6Fsvk")
+    print("Copied")
+end)
+
+Section:NewKeybind("On - Off Uİ", "KeybindInfo", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+
+Section:NewButton("Mobile Keybord", "Use this if u are on MOBİLE", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+    Title = "By Kaksakan";
+    Text  = "Very Good";
+    Icon  = "rbxthumb://type=Asset&id=17730178070&w=150&h=150"})
+Duration = 10;
+
+game:GetService("StarterGui"):SetCore("SendNotification", { 
+    Title = "Youtube";
+    Text  = "Kaksakan_Roblox";
+    Icon  = "rbxthumb://type=Asset&id=17328930447&w=150&h=150"})
+Duration = 10;
+
+else
+    game:GetService("StarterGui"):SetCore("SendNotification",{
+        Title = "Hide And Seek Extreme Script",
+        Text = "Please join the Hide And Seek Extreme"
+    })
+end
